@@ -3,7 +3,7 @@
 
 - Nama: Sofi Muchlison
 - NIM: 2405101064
-- Kelas: [Kelas]
+- Kelas: 5D
 - Program Studi: Teknik Informatika
 - Mata Kuliah: Pemrograman Web Dasar
 - Tahun Akademik: [2026/2027]
