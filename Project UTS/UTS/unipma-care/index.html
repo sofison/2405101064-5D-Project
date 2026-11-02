@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UNIPMA CARE – Layanan Pengaduan Fasilitas Kampus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="#beranda"><img src="images/logo.png" alt="Logo UNIPMA"><div><b>UNIPMA CARE</b><small>Universitas PGRI Madiun</small></div></a>
+  <nav class="menu" aria-label="Menu utama"><a href="#beranda" data-v="beranda">Beranda</a><a href="#buat" data-v="buat">Buat Pengaduan</a><a href="#status" data-v="status">Status Pengaduan</a></nav>
+  <a class="adm" href="#admin" data-v="admin">Login Admin</a>
+  <span class="user" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span>
+</div></header>
+
+<main>
+<div class="view" id="v-beranda">
+  <div class="hero"><div class="wrap">
+    <div>
+      <span class="pill"><i></i>Layanan Resmi Universitas PGRI Madiun</span>
+      <h1>Layanan Pengaduan Fasilitas Kampus</h1>
+      <p class="lead">Laporkan kerusakan barang, alat, dan fasilitas kampus agar dapat segera ditangani secara cepat, tepat, dan transparan oleh tim Sarpras.</p>
+      <div class="cta">
+        <a class="btn" href="#buat"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Buat Pengaduan</a>
+        <a class="btn w" href="#status"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>Pantau Status Pengaduan</a>
+      </div>
+      <div class="proof" id="proof" style="display:none"><div class="av"><span><img src="images/logo.png" alt=""></span><span>01</span><span>02</span></div><div><b><span id="jml">0</span> laporan</b> ditangani dalam 24 jam terakhir</div></div>
+    </div>
+    <div class="showcase">
+      <div class="photo">
+        <img class="b" src="images/gedung.jpg" alt="Gedung Fakultas Teknik UNIPMA">
+        <div class="tag"><img src="images/logo.png" alt="">UNIPMA SARPRAS</div>
+        <div class="cap"><div><i></i>Respon Cepat Teknis Aktif</div><span>Kampus 1, 2 ,3 , Gedung FT &amp; Lab Terpadu</span></div>
+      </div>
+      <div class="last"><div class="t"><span id="lk">LAPORAN TERBARU #UP-8841</span><span class="chip" id="ls">Diproses</span></div><h4 id="lj">Perbaikan LCD Proyektor Lab Komputer G3</h4><div class="bar"><i id="lb"></i></div></div>
+    </div>
+  </div></div>
+
+  <section class="sec"><div class="wrap">
+    <p class="eyebrow">Alur Pelayanan</p>
+    <h2>3 Langkah Mudah Penyampaian Aspirasi</h2>
+    <div class="steps">
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div><small>LANGKAH 01</small><h3>Kirim Pengaduan</h3><p>Isi formulir pengaduan dengan rincian lokasi kerusakan dan unggah foto kondisi.</p></div>
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><small>LANGKAH 02</small><h3>Pantau Progres</h3><p>Status laporan diperbarui real-time dan transparan, mulai dari Diterima hingga Selesai.</p></div>
+      <div class="step"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V5h6v3M3 13h18"/></svg></div><small>LANGKAH 03</small><h3>Perbaikan Fasilitas</h3><p>Tim Sarana dan Prasarana UNIPMA siap menindaklanjuti dan memperbaiki fasilitas belajar.</p></div>
+    </div>
+  </div></section>
+</div>
+
+<div class="view" id="v-buat"><div class="page"><div class="wrap">
+  <p class="eyebrow">Buat Pengaduan</p><h2>Laporkan kerusakan di kampus</h2>
+  <form class="box" id="frm" novalidate>
+    <div class="toast" id="toast" role="status" tabindex="-1">Laporan terkirim. Kode tiket Anda: <code id="kode"></code><br><small>Simpan kode ini, lalu cek di menu <a href="#status">Status Pengaduan</a>.</small></div>
+    <div class="row"><div class="f"><label for="nama">Nama pelapor *</label><input id="nama" autocomplete="name"></div><div class="f"><label for="nim">NIM / NIDN / NIP</label><input id="nim" inputmode="numeric"></div></div>
+    <div class="row"><div class="f"><label for="kat">Kategori *</label><select id="kat"><option value="">Pilih kategori</option><option>Alat</option><option>Properti</option><option>Fasilitas</option></select></div><div class="f"><label for="urg">Tingkat kerusakan *</label><select id="urg"><option value="">Pilih tingkat</option><option>Ringan</option><option>Sedang</option><option>Berat</option></select></div></div>
+    <div class="row"><div class="f"><label for="brg">Nama barang *</label><input id="brg" placeholder="Contoh: Proyektor"></div><div class="f"><label for="lok">Lokasi *</label><input id="lok" placeholder="Contoh: Kampus 1, Gedung A, Ruang 204"></div></div>
+    <div class="f"><label for="des">Keterangan kerusakan *</label><textarea id="des" placeholder="Jelaskan apa yang rusak dan sejak kapan."></textarea></div>
+    <div class="row"><div class="f"><label for="foto">Foto kondisi</label><input id="foto" type="file" accept="image/*"></div><div class="f"><label for="kon">Kontak (WhatsApp / email) *</label><input id="kon" autocomplete="email"></div></div>
+    <div class="err" id="err" role="alert"></div>
+    <button class="btn" type="submit">Kirim laporan</button>
+  </form>
+</div></div></div>
+
+<div class="view" id="v-status"><div class="page"><div class="wrap">
+  <p class="eyebrow">Status Pengaduan</p><h2>Pantau laporan Anda</h2>
+  <div class="box">
+    <label for="q">Kode tiket</label>
+    <div class="srch"><input id="q" placeholder="Contoh: UP-1A2B3C"><button class="btn" id="cari" type="button">Cari</button></div>
+    <div id="res"></div>
+    <h3 style="margin:24px 0 0;font-size:17px">Laporan di perangkat ini</h3><div id="list"></div>
+  </div>
+</div></div></div>
+
+<div class="view" id="v-admin"><div class="page"><div class="wrap">
+  <p class="eyebrow">Login Admin</p><h2>Panel tim Sarpras</h2>
+  <div class="box" id="login" style="max-width:460px">
+    <div class="tabs"><button type="button" id="tabm" class="on">Masuk</button><button type="button" id="tabd">Daftar</button></div>
+    <form id="fm" novalidate>
+      <div class="f"><label for="lu">Username</label><input id="lu" autocomplete="username"></div>
+      <div class="f"><label for="lp">Kata sandi</label><input id="lp" type="password" autocomplete="current-password"></div>
+      <div style="color:#1f8a5b;font-size:13px;margin-bottom:10px" id="mok" role="status"></div>
+      <div class="err" id="merr" role="alert"></div><button class="btn" type="submit">Masuk</button>
+      <p class="hint" style="margin:14px 0 0">Belum punya akun? Pilih tab Daftar.</p>
+    </form>
+    <form id="fd" style="display:none" novalidate>
+      <div class="f"><label for="dn">Nama lengkap</label><input id="dn" autocomplete="name"></div>
+      <div class="f"><label for="du">Username</label><input id="du" autocomplete="username"></div>
+      <div class="f"><label for="dp">Kata sandi</label><input id="dp" type="password" autocomplete="new-password"><div class="hint">Minimal 6 karakter.</div></div>
+      <div class="f"><label for="dk">Kode petugas</label><input id="dk" autocomplete="off"></div>
+      <div class="err" id="derr" role="alert"></div><button class="btn" type="submit">Buat akun admin</button>
+    </form>
+  </div>
+  <div class="box" id="panel" style="display:none"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><b id="hal">Halo</b><button class="btn w" id="keluar" type="button">Keluar</button></div><p class="hint" style="margin:8px 0 0">Semua laporan di perangkat ini. Ubah status lewat menu di tiap laporan.</p><div id="alist"></div></div>
+</div></div></div>
+</main>
+<footer><div class="wrap">UNIPMA CARE · Layanan Pengaduan Fasilitas Universitas PGRI Madiun</div></footer>
+
+<script src="script.js"></script>
+</body>
+</html>
